@@ -25,6 +25,7 @@
             $query=$this->model_e->get();
             include_once('vistas/header.php');
             include_once('vistas/estudiante.php');
+            include_once('vistas/carrera.php');
             include_once('vistas/footer.php');
         }
 
