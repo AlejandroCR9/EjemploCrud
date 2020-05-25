@@ -1,8 +1,9 @@
 <?php
     require_once('bd/conexion.php');
     require_once('controlador/estudiante_controller.php');
+    require_once('controlador/universidad_controller.php');
 
-    $controller= new estudiante_controller();
+    $controller= new universidad_controller();
     
     if(!empty($_REQUEST['m'])){
         $metodo=$_REQUEST['m'];

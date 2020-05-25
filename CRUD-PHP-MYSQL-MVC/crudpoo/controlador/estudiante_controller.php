@@ -14,7 +14,7 @@
             $query =$this->model_e->get();
 
             include_once('vistas/header.php');
-            include_once('vistas/index.php');
+            include_once('vistas/indexEstudiante.php');
             include_once('vistas/footer.php');
         }
         function estudiante(){
@@ -25,26 +25,6 @@
             $query=$this->model_e->get();
             include_once('vistas/header.php');
             include_once('vistas/estudiante.php');
-            include_once('vistas/footer.php');
-        }
-        function universidad(){
-            $data=NULL;
-            if(isset($_REQUEST['id'])){
-                $data=$this->model_e->get_id($_REQUEST['id']);    
-            }
-            $query=$this->model_e->get();
-            include_once('vistas/header.php');
-            include_once('vistas/universidad.php');
-            include_once('vistas/footer.php');
-        }
-        function carrera(){
-            $data=NULL;
-            if(isset($_REQUEST['id'])){
-                $data=$this->model_e->get_id($_REQUEST['id']);    
-            }
-            $query=$this->model_e->get();
-            include_once('vistas/header.php');
-            include_once('vistas/carrera.php');
             include_once('vistas/footer.php');
         }
 
@@ -58,6 +38,8 @@
             $data['promedio']=$_REQUEST['txt_promedio'];
             $data['edad']=$_REQUEST['txt_edad'];
             $data['fecha']=$_REQUEST['txt_fecha'];
+            $data['universidad']=$_REQUEST['txt_universidad'];
+            $data['carrera']=$_REQUEST['txt_carrera'];
 
             if ($_REQUEST['id']=="") {
                 $this->model_e->create($data);

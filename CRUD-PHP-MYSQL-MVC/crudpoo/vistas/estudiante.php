@@ -61,6 +61,54 @@
                     </div>
                     
                 </div>
+
+                <div class="form-group">
+                    <label class=" col-sm-2 control-label" for="txt_fecha">UNIVERSIDAD:</label>
+                    <div class="col-sm-10">
+                        <select class="form-control" name="txt_universidad">
+                        <option value="0">Seleccione universidad:</option>
+                        <?php
+                        
+                        $DB;
+                        $this->DB=Database::connect();
+                        // Realizamos la consulta para extraer los datos
+                        $sql= 'SELECT * FROM universidad';
+                        $fila=$this->DB->query($sql);
+
+                        foreach($fila as $data):
+                            // En esta sección estamos llenando el select con datos extraidos de una base de datos.
+                                echo '<option value="'.$data[idUni].'">'.$data[nombreUni].'</option>';
+                            
+                        endforeach;
+                        ?>
+                        </select>
+                    </div>
+                    
+                </div>
+
+                <div class="form-group">
+                    <label class=" col-sm-2 control-label" for="txt_fecha">CARRERA:</label>
+                    <div class="col-sm-10">
+                        <select class="form-control" name="txt_carrera">
+                        <option value="0">Seleccione carrera:</option>
+                        <?php
+                        $DB;
+                        $this->DB=Database::connect();
+                        // Realizamos la consulta para extraer los datos
+                        $sql= 'SELECT * FROM carrera inner JOIN universidad on idUni = uniFK';
+                        $fila=$this->DB->query($sql);
+
+                        foreach($fila as $data):
+                            // En esta sección estamos llenando el select con datos extraidos de una base de datos.
+                                echo '<option value="'.$data[idCarrera].'">'.$data[nombreCarrera].'</option>';
+                            
+                        endforeach;
+                        ?>
+                        </select>
+                    </div>
+                    
+                </div>
+                
                 <div class="form-group">
                     <div class="col-md-12 col-md-off-set-3">
                     <?php if($data['id']==""){ ?>
