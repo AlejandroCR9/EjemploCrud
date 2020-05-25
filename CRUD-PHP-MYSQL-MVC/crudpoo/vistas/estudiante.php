@@ -75,9 +75,9 @@
                         $sql= 'SELECT * FROM universidad';
                         $fila=$this->DB->query($sql);
 
-                        foreach($fila as $data):
+                        foreach($fila as $datax):
                             // En esta sección estamos llenando el select con datos extraidos de una base de datos.
-                                echo '<option value="'.$data[idUni].'">'.$data[nombreUni].'</option>';
+                                echo '<option value="'.$datax[idUni].'">'.$datax[nombreUni].'</option>';
                             
                         endforeach;
                         ?>
@@ -98,9 +98,9 @@
                         $sql= 'SELECT * FROM carrera inner JOIN universidad on idUni = uniFK';
                         $fila=$this->DB->query($sql);
 
-                        foreach($fila as $data):
+                        foreach($fila as $datas):
                             // En esta sección estamos llenando el select con datos extraidos de una base de datos.
-                                echo '<option value="'.$data[idCarrera].'">'.$data[nombreCarrera].'</option>';
+                                echo '<option value="'.$datas[idCarrera].'">'.$datas[nombreCarrera].'</option>';
                             
                         endforeach;
                         ?>

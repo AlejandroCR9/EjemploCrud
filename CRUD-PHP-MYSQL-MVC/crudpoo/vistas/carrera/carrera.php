@@ -5,39 +5,39 @@
     </div>
     <div class="col-md-6 col-md-offset-3">
         <div class="form-horizontal" style="">
-            <?php if($data['id']==""){ ?>
-            <form action="index.php?m=get_datosE" method="post">
+            <?php if($data['idCarrera']==""){ ?>
+            <form action="index.php?m=get_datosA" method="post">
             <?php } ?>
-            <?php if($data['id']!=""){ ?>
-            <form action="index.php?m=get_datosE&id=<?php echo $data['id'];?>" method="post">
+            <?php if($data['idCarrera']!=""){ ?>
+            <form action="index.php?m=get_datosA&id=<?php echo $data['idCarrera'];?>" method="post">
             <?php } ?>
 
                 <!-- <div class="form-group">
                    <label class=" col-sm-2 control-label" for="txt_id">ID:</label>
                     <div class="col-sm-10">
-                <input type="text" class="form-control" name="txt_id" value="<?php echo $data['id']; ?>">
+                <input type="text" class="form-control" name="txt_id" value="<?php echo $data['idCarrera']; ?>">
                     </div>
                     
                 </div>-->
                 <div class="form-group">
                     <label class=" col-sm-2 control-label" for="txt_nombreC">NOMBRE:</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" name="txt_nombreC" value="<?php echo $data['cedula']; ?>">
+                        <input type="text" class="form-control" name="txt_nombreC" value="<?php echo $data['nombreCarrera']; ?>">
                     </div>
                     
                 </div>
                 <div class="form-group">
                     <label class=" col-sm-2 control-label" for="txt_capacidad">CAPACIDAD:</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" name="txt_capacidad" value="<?php echo $data['nombre']; ?>">
+                        <input type="text" class="form-control" name="txt_capacidad" value="<?php echo $data['capacidad']; ?>">
                     </div>
                     
                 </div>
 
                 <div class="form-group">
-                    <label class=" col-sm-2 control-label" for="txt_fecha">UNIVERSIDAD:</label>
+                    <label class=" col-sm-2 control-label" for="txt_uni">UNIVERSIDAD:</label>
                     <div class="col-sm-10">
-                        <select class="form-control" name="txt_uni">
+                        <select class="form-control" name="txt_univ">
                         <option value="0">Seleccione universidad:</option>
                         <?php
                         $DB;
@@ -46,9 +46,9 @@
                         $sql= 'SELECT * FROM universidad';
                         $fila=$this->DB->query($sql);
 
-                        foreach($fila as $data):
+                        foreach($fila as $datax):
                             // En esta sección estamos llenando el select con datos extraidos de una base de datos.
-                                echo '<option value="'.$data[idUni].'">'.$data[nombreUni].'</option>';
+                                echo '<option value="'.$datax[idUni].'">'.$datax[nombreUni].'</option>';
                             
                         endforeach;
                         ?>
@@ -60,10 +60,10 @@
                 </div>
                 <div class="form-group">
                     <div class="col-md-12 col-md-off-set-3">
-                    <?php if($data['id']==""){ ?>
+                    <?php if($data['idCarrera']==""){ ?>
                         <input type="submit" class="btn btn-primary form-control" name="" value="registrar">
                     <?php }  ?>
-                    <?php if($data['id']!=""){ ?>
+                    <?php if($data['idCarrera']!=""){ ?>
                     <input type="submit" class="btn btn-primary form-control" name="" value="Actualizar">
                     <?php }  ?>
                     </div>

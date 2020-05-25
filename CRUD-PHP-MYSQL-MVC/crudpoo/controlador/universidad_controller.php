@@ -35,12 +35,12 @@
             $data['nombreUni']=$_REQUEST['txt_nombreU'];
             $data['ubicacion']=$_REQUEST['txt_ubicacion'];
 
-            if ($_REQUEST['idUni']=="") {
+            if ($_REQUEST['id']=="") {
                 $this->model_u->create($data);
             }
             
-            if($_REQUEST['idUni']!=""){
-                $date=$_REQUEST['idUni'];
+            if($_REQUEST['id']!=""){
+                $date=$_REQUEST['id'];
                 $this->model_u->update($data,$date);
             }
             
