@@ -32,9 +32,6 @@
             include_once('vistas/footer.php');
         }
         function get_datosE(){
-            //Aqui vamos a tomar los datos de nuestro formulario 
-            
-            //$data['id']=$_REQUEST['txt_id'];
             $data['cedula']=$_REQUEST['txt_cedula'];
             $data['nombre']=$_REQUEST['txt_nombre'];
             $data['apellidos']=$_REQUEST['txt_apellidos'];
@@ -43,19 +40,24 @@
             $data['fecha']=$_REQUEST['txt_fecha'];
             $data['universidad']=$_REQUEST['txt_universidad'];
             $data['carrera']=$_REQUEST['txt_carrera'];
-            
-            //Si el id es igual a 0 signitica que se esta realizando un INSERT y se manda a llamar el metodo create de nuestro modelo
-            if ($_REQUEST['id']=="") {
+            echo($data['cedula']);
+            echo($data['nombre']);
+            echo($data['apellidos']);
+            echo($data['promedio']);
+            echo($data['edad']);
+            echo($data['fecha']);
+            echo($data['universidad']);
+            echo($data['carrera']);
+            if ($_REQUEST['id']=="") {//Si no hay id, se crea un nuevo registro.
+                echo("Hola");
                 $this->model_e->create($data);
+                echo("Hola");
             }
-            //Cuando id tiene un valor significa que sera un UPDATE entonces se manda a llamar dicha funcion de nuestro modelo
-            if($_REQUEST['id']!=""){
+            if($_REQUEST['id']!=""){//Si esxiste un id, se edita el registro con ese id.
                 $date=$_REQUEST['id'];
                 $this->model_e->update($data,$date);
             }
-            
             header("Location:index.php?m=indexE");
-
         }
 
         function confirmarDeleteE(){

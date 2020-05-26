@@ -15,17 +15,17 @@
             return $this->estudiantes;
         }
 
+        //Registro de univeridades
         function create($data){
-            //Creamos una sentencia en la cual vamos a insertar los datos que tenemos en nuestro array de $data
-
+            //Se prepara la sentencia insert
             $this->DB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $sql="INSERT INTO estudiante(cedula,nombre,apellidos,promedio,edad,fecha,Fk_Carrera,Fk_Universidad)VALUES (?,?,?,?,?,?,?,?)";
-
             $query = $this->DB->prepare($sql);
-            $query->execute(array($data['cedula'],$data['nombre'],$data['apellidos'],$data['promedio'],$data['edad'],$data['fecha'],$data['universidad'],$data['carrera']));
+            //Asignamos valores a los signos ? que pusimos anteriomente en la setnencia y se ejecuta
+            $query->execute(array($data['cedula'],$data['nombre'],$data['apellidos'],$data['promedio'],$data['edad'],$data['fecha'],$data['carrera'],$data['universidad']));
             Database::disconnect();       
-
         }
+        
         function get_id($id){
             //Si queremos tomar los datos de un id en especifico entonces solamente mandamos a llamar 
             //a esta funcion ubicada en el modelo de carrera.
