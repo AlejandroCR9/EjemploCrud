@@ -1,6 +1,14 @@
+<?php
+    session_start();
+    if(!isset($_SESSION["user"])){
+        header("Location:index.php?m=login");
+    }
+?>
+
+
 <div class="container">
     <div class="jumbotron">
-        <h2>Formulario registro</h2>
+        <h2>Formulario registro estudiante</h2>
 
     </div>
     <div class="col-md-6 col-md-offset-3">

@@ -1,6 +1,13 @@
+<?php
+    session_start();
+    if(!isset($_SESSION["user"])){
+        header("Location:index.php?m=login");
+    }
+?>
+
 <div class="container" style="margin-top: 80px">
     <div class="jumbotron">
-        <h2>Registro de Carrera</h2>
+        <h2>CARRERAS</h2>
         
     </div>
     <div class="container">
@@ -22,7 +29,7 @@
                         <th><?php echo $data['uniFK']; ?></th>
                         <th>
                             <a href="index.php?m=carrera&id=<?php echo $data['idCarrera']?>" class="btn btn-primary">Editar</a>
-                            <a href="index.php?m=confirmarDelete&id=<?php echo $data['idCarrera']?>" class="btn btn-danger">Eliminar</a>
+                            <a href="index.php?m=confirmarDeleteC&id=<?php echo $data['idCarrera']?>" class="btn btn-danger">Eliminar</a>
                         </th>
                     </tr>
                 <?php endforeach; ?>

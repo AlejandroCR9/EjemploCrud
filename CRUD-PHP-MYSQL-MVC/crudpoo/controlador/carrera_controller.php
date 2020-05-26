@@ -7,12 +7,14 @@
         private $model_p;
 
         function __construct(){
+            //Vamos a instanciar la variable model_c asignandole el objeto de nuestra clase carrera_model.php
             $this->model_c=new carrera_model();
         }
 
-        function index(){
+        function indexC(){
             $query =$this->model_c->get();
-
+ //Cuando mandamos a llamar el Index Se requiere enviar una solicitud al modelo para que nos regrese un array
+            //con todos los estudiantes ya registrados y nos permite llenar nuestro crud ubicado en IndexEstudiante.php
             include_once('vistas/header.php');
             include_once('vistas/carrera/indexCarrera.php');
             include_once('vistas/footer.php');
@@ -44,12 +46,13 @@
                 $this->model_c->update($data,$date);
             }
             
-            header("Location:index.php");
+            header("Location:index.php?m=indexC");
 
         }
 
-        function confirmarDelete(){
-
+        function confirmarDeleteC(){
+ //Se confirmara la elimincacion de un registro seleccionando la id y mandando a llaamar la funcion delete
+            //de nuestro modelo de carrera.
             $data=NULL;
             
             if ($_REQUEST['id']!=0) {
@@ -59,7 +62,7 @@
             if ($_REQUEST['id']==0) {
                 $date['id']=$_REQUEST['txt_idCarrera'];
                 $this->model_c->delete($date['id']);
-                header("Location:index.php");
+                header("Location:index.php?m=indexC");
             }
 
             include_once('vistas/header.php');
